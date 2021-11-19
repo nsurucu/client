@@ -25,7 +25,7 @@ function TodoList({ isAuthenticated, setIsAuthenticated }) {
 		const loadData = async () => {
 			let response = null;
 			try {
-				let url = `http://localhost:8080/api/todo/${pageNumber - 1}/${pageSize}`;
+				let url = `/api/todo/${pageNumber - 1}/${pageSize}`;
 
 
 				response = await axios.get(url, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem('token')}`, } });
@@ -47,7 +47,7 @@ function TodoList({ isAuthenticated, setIsAuthenticated }) {
 
 	const deleteTodo = async (id) => {
 		try {
-			await axios.delete(`http://localhost:8080/api/todo/${id}`, {
+			await axios.delete(`/api/todo/${id}`, {
 				headers: {
 					'Authorization': `Bearer ${sessionStorage.getItem('token')}`
 				}
