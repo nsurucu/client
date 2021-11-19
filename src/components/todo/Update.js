@@ -24,7 +24,7 @@ function UpdateTodo({isAuthenticated, setIsAuthenticated, match}) {
     e.preventDefault();
   
     try {
-      await axios.put(`/api/todo/${match.params.id}`, {title, targetDate}, {
+      await axios.put(`https://example-backe.herokuapp.com/api/todo/${match.params.id}`, {title, targetDate}, {
         headers: {
           'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
@@ -49,7 +49,7 @@ function UpdateTodo({isAuthenticated, setIsAuthenticated, match}) {
     const loadData = async () => {
       let response = null;
       try {
-        response = await axios.get(`/api/todo/${match.params.id}`, {
+        response = await axios.get(`https://example-backe.herokuapp.com/api/todo/${match.params.id}`, {
           headers: {
 						'Authorization': `Bearer ${sessionStorage.getItem('token')}`
 					}

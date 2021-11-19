@@ -17,7 +17,7 @@ function Signin({isAuthenticated, setIsAuthenticated}) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/auth/signin', {username, password});
+      const response = await axios.post('https://example-backe.herokuapp.com/api/auth/signin', {username, password});
       sessionStorage.setItem('token', response.data.token);
       sessionStorage.setItem('name', response.data.username);
       setIsAuthenticated(true);
